@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Confidentialité - Contagion</title>
+    <style>
+        :root {
+            --bg-main: #0B0E14;
+            --bg-card: #141923;
+            --primary: #2575FC;
+            --secondary: #6A11CB;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --border: #222B3C;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 30px;
+            position: relative;
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 0 12px rgba(37, 117, 252, 0.4);
+        }
+
+        .logo-placeholder {
+            max-width: 280px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #FFFFFF;
+            margin: 10px 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p, li {
+            color: #D1D5DB;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #6366F1;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .badge {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: inline-block;
+        }
+        
+        .badge.highlight {
+            border-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .lang-en { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="lang-switch">
+                <button id="btn-fr" class="lang-btn active" onclick="switchLang('fr')">FR</button>
+                <button id="btn-en" class="lang-btn" onclick="switchLang('en')">EN</button>
+            </div>
+            <img src="logo.png" alt="JPro Studio" class="logo-placeholder">
+            
+            <h1 class="lang-fr">Politique de Confidentialité</h1>
+            <h1 class="lang-en">Privacy Policy</h1>
+            
+            <div class="subtitle">
+                <span class="lang-fr">Application Mobile : <strong>Contagion</strong> | Éditeur : <strong>JPro Studio</strong></span>
+                <span class="lang-en">Mobile Application: <strong>Contagion</strong> | Publisher: <strong>JPro Studio</strong></span>
+            </div>
+            <div class="subtitle">
+                <span class="lang-fr">Dernière mise à jour : 30 octobre 2026</span>
+                <span class="lang-en">Last updated: October 30, 2026</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- SECTION 1 -->
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>1. Collecte et Utilisation des Données</h2>
+                    <p>L'application mobile <strong>Contagion</strong> est conçue pour respecter totalement la vie privée de ses joueurs. Aucun compte utilisateur ou inscription en ligne n'est requis.</p>
+                    <h3>Stockage Persistant Local</h3>
+                    <p>Toutes vos données sont sauvegardées exclusivement de façon locale et permanente sur votre propre appareil (via la technologie native <em>Capacitor Preferences</em>). L'éditeur <strong>JPro Studio</strong> n'a accès à aucune de ces informations. Les éléments stockés incluent :</p>
+                    <ul>
+                        <li>Le meilleur score personnel (High Score).</li>
+                        <li>La progression des niveaux et les statistiques de jeu.</li>
+                        <li>Les skins débloqués ainsi que leurs variantes évoluées.</li>
+                        <li>Le statut de complétion de la Série 1 des succès.</li>
+                        <li><strong>Les récompenses et l'historique des défis quotidiens.</strong></li>
+                    </ul>
+                </div>
+                <div class="lang-en">
+                    <h2>1. Data Collection and Use</h2>
+                    <p>The <strong>Contagion</strong> mobile application is built to fully respect player privacy. No user registration or online account creation is required.</p>
+                    <h3>Local Persistent Storage</h3>
+                    <p>All your gameplay data is saved exclusively and permanently on your own device (using native <em>Capacitor Preferences</em> technology). The publisher, <strong>JPro Studio</strong>, has no access to this information. Stored data includes:</p>
+                    <ul>
+                        <li>Personal best score (High Score).</li>
+                        <li>Level progression and gameplay statistics.</li>
+                        <li>Unlocked skins and their evolved variants.</li>
+                        <li>Completion status of the Series 1 achievements.</li>
+                        <li><strong>Daily challenge rewards and history.</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 2 -->
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>2. Services Tiers et Publicités (AdMob)</h2>
+                    <p>Afin de proposer des mécaniques de jeu gratuites (comme la résurrection avec conservation de la masse, le déblocage de variantes de skins, l'obtention de mutations ou les bonus de la roue des récompenses), l'Application intègre le service publicitaire <strong>Google AdMob</strong>.</p>
+                    <p>Pour diffuser et valider ces vidéos récompensées (Rewarded Videos), Google AdMob peut collecter des identifiants techniques anonymes :</p>
+                    <ul>
+                        <li>L'identifiant publicitaire unique de votre appareil (Ad ID pour Android ou IDFA pour iOS).</li>
+                        <li>Des données de performance et de diagnostic de l'application.</li>
+                    </ul>
+                    <p>Consultez leurs engagements : <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Politique de confidentialité de Google AdMob & Play Services</a>.</p>
+                </div>
+                <div class="lang-en">
+                    <h2>2. Third-Party Services and Advertisements (AdMob)</h2>
+                    <p>To provide free in-game mechanics (such as resurrection while retaining mass, unlocking skin variants, acquiring mutations, or reward wheel bonuses), the Application integrates the <strong>Google AdMob</strong> advertising service.</p>
+                    <p>To serve and validate these Rewarded Videos, Google AdMob may collect anonymous technical identifiers:</p>
+                    <ul>
+                        <li>Your device's unique advertising identifier (Ad ID for Android or IDFA for iOS).</li>
+                        <li>Application performance and diagnostic data.</li>
+                    </ul>
+                    <p>View their commitments: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google AdMob & Play Services Privacy Policy</a>.</p>
+                </div>
+            </div>
+
+            <!-- SECTION 3 -->
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>3. Modules Natifs (Partage et Notation)</h2>
+                    <p>L'Application utilise les fonctionnalités intégrées de votre système d'exploitation :</p>
+                    <ul>
+                        <li><strong>Partage Viral :</strong> Les options de partage intégrées au tableau des scores et au menu Game Over font appel au système de partage natif (Snapchat, TikTok, Instagram, X, Facebook).</li>
+                        <li><strong>Système de Notation :</strong> La popup d'incitation à la notation (In-App Review) se déclenche via les API officielles de Google/Apple et ne collecte aucune donnée personnelle.</li>
+                    </ul>
+                </div>
+                <div class="lang-en">
+                    <h2>3. Native Features (Sharing and Reviews)</h2>
+                    <p>The Application utilizes the built-in capabilities of your mobile operating system:</p>
+                    <ul>
+                        <li><strong>Viral Sharing:</strong> Sharing options integrated into the scoreboard and Game Over menu rely on the device's native system to share text or graphics directly to platforms like Snapchat, TikTok, Instagram, X, and Facebook.</li>
+                        <li><strong>Review System:</strong> The rating prompt (In-App Review) triggers via official Google/Apple APIs and does not collect any personal data.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>4. Sécurité et Protection (R8)</h2>
+                    <p>Pour prémunir le jeu contre la triche et sécuriser l'intégrité de vos fichiers de sauvegarde locaux, le code de l'application est entièrement optimisé et rendu anonyme (obfusqué) via la technologie <strong>R8</strong> avant sa publication sur les boutiques officielles.</p>
+                </div>
+                <div class="lang-en">
+                    <h2>4. Security and Code Protection (R8)</h2>
+                    <p>To protect the game against cheating and secure the integrity of your local save files, the application code is optimized, minified, and obfuscated using <strong>R8</strong> technology before its official release on app stores.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>5. Vos Droits et Vos Choix</h2>
+                    <ul>
+                        <li><strong>Droit de suppression :</strong> Vous pouvez réinitialiser instantanément vos scores, succès, mutations et récompenses de défis quotidiens en désinstallant simplement l'Application.</li>
+                        <li><strong>Contrôle publicitaire :</strong> Vous pouvez modifier ou réinitialiser vos options de suivi publicitaire depuis les options système de votre téléphone (<em>Paramètres > Confidentialité > Annonces</em>).</li>
+                    </ul>
+                </div>
+                <div class="lang-en">
+                    <h2>5. Your Rights and Choices</h2>
+                    <ul>
+                        <li><strong>Right to Deletion:</strong> You can instantly wipe all your scores, achievements, mutations, and daily challenge rewards by simply uninstalling the Application.</li>
+                        <li><strong>Ad Control:</strong> You can opt-out or reset your ad tracking settings at any time through your mobile device's system configurations (<em>Settings > Privacy > Ads</em>).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>6. Nous Contacter / Contact Us</h2>
+                    <p>Pour toute question concernant le jeu <strong>Contagion</strong>, l'équipe de <strong>JPro Studio</strong> est à votre disposition par e-mail :</p>
+                </div>
+                <div class="lang-en" style="display:none;">
+                    <h2>6. Contact Us / Nous Contacter</h2>
+                    <p>For any questions regarding the game <strong>Contagion</strong>, the <strong>JPro Studio</strong> team is at your disposal via email:</p>
+                </div>
+                <!-- Fixed contact block container to prevent duplication -->
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="mailto:JPro-studio@gmail.com" style="background-color: var(--primary); color: white; padding: 12px 24px; border-radius: 8px; font-weight: bold; display: inline-block; box-shadow: 0 4px 12px rgba(37, 117, 252, 0.3);">JPro-studio@gmail.com</a>
+                </p>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 JPro Studio. All rights reserved. / Tous droits réservés.</p>
+            <div class="badge-list" style="justify-content: center;">
+                <span class="badge">Contagion Mobile</span>
+                <span class="badge highlight lang-fr">Conforme RGPD</span>
+                <span class="badge highlight lang-en">GDPR Compliant</span>
+                <span class="badge">Protection R8</span>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            const frElements = document.querySelectorAll('.lang-fr');
+            const enElements = document.querySelectorAll('.lang-en');
+            const btnFr = document.getElementById('btn-fr');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'fr') {
+                frElements.forEach(el => el.style.display = 'block');
+                enElements.forEach(el => el.style.display = 'none');
+                btnFr.classList.add('active');
+                btnEn.classList.remove('active');
+            } else {
+                frElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = 'block');
+                btnFr.classList.remove('active');
+                btnEn.classList.add('active');
+            }
+        }
+        
+        // Auto-detect browser language
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage;
+            if (userLang.startsWith('en')) {
+                switchLang('en');
+            } else {
+                switchLang('fr');
+            }
+        });
+    </script>
+</body>
+</html>
