@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contagion – Jeu d’arcade et d’aventure gratuit | JPro Studio</title>
+<meta name="description" content="Contagion : jeu d’arcade et d’aventure gratuit à l’humour décalé. Absorbe, évolue, parcours un monde fictif. Disponible sur Google Play.">
+<meta property="og:title" content="Contagion – Jeu d’arcade et d’aventure gratuit">
+<meta property="og:description" content="Un virus. Un patient. Une pandémie mondiale.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="tous_skins_bases.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2A5C;--navy2:#143C7E;--ink:#050B1A;--yellow:#FDD53F;--cyan:#22D3EE;--pill:#2F4F86;--line:#5C7DB3;--text:#F3F6FF;--muted:#B6C4E0;--ratio-court:9/16;--ratio-long:9/16}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);background:linear-gradient(180deg,var(--navy),var(--navy2) 55%,var(--navy));font:600 1.05rem/1.65 Nunito,"Segoe UI",system-ui,sans-serif}
+html[lang="fr"] .en,html[lang="fr"] .lang-en,html[lang="en"] .fr,html[lang="en"] .lang-fr{display:none!important}
+a{color:var(--yellow)}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.narrow{max-width:800px}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.15}
+h2{font-size:clamp(1.5rem,3.6vw,2.1rem);margin-bottom:14px}
+h3{font-size:1.15rem;margin-bottom:6px}
+/* barre du haut, comme l'en-tête du jeu */
+.top{background:var(--ink);border-radius:0 0 28px 28px;position:relative;box-shadow:0 8px 26px rgba(0,0,0,.35)}
+.top::after{content:"";position:absolute;left:10%;right:10%;bottom:0;height:3px;border-radius:3px;background:var(--cyan)}
+.top .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:14px;padding-bottom:18px}
+.brand{margin-right:auto;font-size:1.7rem;font-weight:900;letter-spacing:.1em;padding-left:.1em;transform:scaleX(1.5);text-transform:uppercase;color:#fff;text-decoration:none;text-shadow:2px 3px 0 #0e8a9a}
+.brand{position:relative;isolation:isolate}
+.ecg{position:absolute;z-index:-1;left:-26px;right:-26px;top:-4px;bottom:-4px;width:calc(100% + 52px);height:calc(100% + 8px);overflow:visible;pointer-events:none}
+.ecg path{fill:none;stroke:#FF3B4E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ecg .trace{opacity:.2}
+.ecg .pulse{stroke-dasharray:35 100;filter:drop-shadow(0 0 4px #FF3B4E);animation:ecg 2.8s linear infinite}
+@keyframes ecg{from{stroke-dashoffset:35}to{stroke-dashoffset:-100}}
+@media(prefers-reduced-motion:reduce){.ecg .pulse{animation:none;stroke-dasharray:none}}
+.top .wrap{display:block;padding-top:14px;padding-bottom:20px}
+.row1{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px}
+.row1 .brand{justify-self:center}
+.appicon{justify-self:end;width:58px;height:58px;border:3px solid var(--yellow);border-radius:16px;box-shadow:0 0 18px rgba(34,211,238,.35)}
+.studiologo{justify-self:start;height:46px;width:auto;padding:5px 10px;border-radius:14px;background:#F3F6FF}
+.row2{display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;margin-top:10px}
+@media(max-width:560px){.brand{font-size:1.1rem;letter-spacing:.04em;padding-left:.04em;transform:scaleX(1.08)}.appicon{width:46px;height:46px}.studiologo{height:36px}}
+.btn.dl{display:inline-flex;align-items:center;gap:20px;padding:12px 28px;line-height:1.2}
+.dl svg{width:28px;height:28px;flex:none}
+.dl img{width:38px;height:38px;flex:none;border:2px solid #fff;border-radius:10px}
+.btn .send{width:1.2em;height:1.2em;margin-left:10px;vertical-align:-.2em;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.title .lg{display:block;width:140px;margin:0 auto 14px;padding:10px 14px;border-radius:18px;background:#F3F6FF}
+.hero-gif{display:block;width:100%;height:auto;margin-bottom:22px;border-radius:32px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+.top a.l{color:var(--muted);font-weight:800;text-decoration:none}
+.top a.l:hover{color:var(--yellow)}
+.lang button{background:var(--pill);border:2px solid var(--line);color:#fff;border-radius:999px;padding:6px 14px;font:800 .9rem Nunito,sans-serif;cursor:pointer}
+html[lang="fr"] #b-fr,html[lang="en"] #b-en{background:var(--yellow);color:#1a1a1a;border-color:#fff}
+/* éléments signature du menu */
+.pill{display:inline-block;margin:0 0 22px;padding:8px 24px;border:4px solid var(--yellow);border-radius:999px;background:#1B2C52;color:#fff;font-weight:800}
+.btn{display:inline-block;padding:16px 34px;border:3px solid #FFD2C2;border-radius:999px;background:linear-gradient(90deg,#FF4D7D,#FFA04A);color:#fff;font-weight:900;letter-spacing:.05em;text-shadow:1px 2px 0 #b0245a;text-decoration:none;box-shadow:0 8px 26px rgba(255,77,125,.35);cursor:pointer;font-family:inherit;font-size:1.05rem}
+.btn:hover{filter:brightness(1.1)}
+.panel,.card{background:rgba(47,79,134,.55);border:2px solid var(--line);border-radius:24px;padding:22px 26px}
+.card{margin-bottom:22px}
+.card h2{font-size:1.3rem;color:var(--yellow)}
+.card h3{color:#fff;margin-top:16px}
+.card p,.card li{color:#E3EAFB}
+.card li{margin-bottom:8px}
+.badge-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.badge{display:inline-block;padding:5px 14px;border:2px solid var(--line);border-radius:999px;background:var(--pill);font-size:.85rem}
+.badge.highlight{border-color:var(--yellow)}
+footer{margin-top:50px;padding:30px 0;border-top:2px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
+footer a{margin:0 8px;color:var(--muted)}
+.title{padding:44px 0 26px;text-align:center}
+.title h1{font-size:clamp(1.9rem,5vw,2.8rem);margin-bottom:12px}
+.title p{margin:4px 0;color:var(--muted)}
+/* accueil */
+.hero{padding:48px 0 40px}
+.split{display:grid;gap:40px;align-items:center}
+@media(min-width:800px){.split{grid-template-columns:1.1fr .9fr}.split.rev{grid-template-columns:.9fr 1.1fr}.split.rev .copy{order:2}}
+.hero h1{margin-bottom:16px;font-size:clamp(2.8rem,9vw,5rem);letter-spacing:.05em;text-transform:uppercase;text-shadow:3px 4px 0 #0e8a9a}
+.tag{max-width:30ch;margin:0 0 28px;font-size:1.3rem;color:#E3EAFB}
+.note{margin:14px 0 0;color:var(--muted);font-size:.95rem}
+.frame{width:min(100%,340px);margin:0 auto;overflow:hidden;background:#000;border:4px solid var(--yellow);border-radius:30px;box-shadow:0 0 50px rgba(34,211,238,.25)}
+.frame video{display:block;width:100%;height:100%;object-fit:contain}
+.f1{aspect-ratio:var(--ratio-court)}.f2{aspect-ratio:var(--ratio-long)}
+.banner{display:block;width:100%;height:auto;border-radius:32px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+section{padding:56px 0}
+.feat{display:grid;gap:18px;margin-top:26px}
+@media(min-width:700px){.feat{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.feat{grid-template-columns:repeat(3,1fr)}}
+.feat .ico{display:block;margin-bottom:8px;font-size:2rem}
+.feat p,.copy p{margin:0;color:#E3EAFB}
+.shots{display:flex;gap:16px;margin-top:22px;padding:6px 0 18px;overflow-x:auto;scroll-snap-type:x mandatory}
+.shots img{flex:none;height:440px;width:auto;border:3px solid var(--line);border-radius:18px;scroll-snap-align:start}
+.studio{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.studio img{width:150px;height:auto;padding:12px 16px;border-radius:20px;background:#F3F6FF;box-shadow:0 4px 18px rgba(0,0,0,.3)}
+.studio p{margin:0;flex:1;min-width:220px}
+.cta{text-align:center}
+/* formulaire */
+form label{display:block;margin:16px 0 6px;font-weight:800}
+form input,form textarea{width:100%;padding:14px 16px;border:2px solid var(--line);border-radius:16px;background:var(--ink);color:#fff;font:600 1rem Nunito,sans-serif}
+form textarea{min-height:160px;resize:vertical}
+form .btn{margin-top:22px}
+
+[data-view="home"] .v-privacy,[data-view="home"] .v-contact,[data-view="privacy"] .v-home,[data-view="privacy"] .v-contact,[data-view="contact"] .v-home,[data-view="contact"] .v-privacy{display:none}
+</style>
+</head>
+<body data-view="home">
+<nav class="top"><div class="wrap">
+  <div class="row1"><img class="studiologo" src="logo.png" alt="JPro Studio"><a class="brand" href="#top"><svg class="ecg" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path class="trace" d="M0 20H46l5-5 5 5H76l5 4 7-22 7 32 5-14H120l6-6 8 6H200"/><path class="pulse" pathLength="100" d="M0 20H46l5-5 5 5H76l5 4 7-22 7 32 5-14H120l6-6 8 6H200"/></svg>Contagion</a><img class="appicon" src="app-icon.png" alt="Contagion"></div>
+  <div class="row2"><a class="l" href="#gameplay">Gameplay</a>
+  <a class="l" href="#privacy"><span class="fr">Confidentialité</span><span class="en">Privacy</span></a>
+  <a class="l" href="#contact">Contact</a><span class="lang"><button id="b-fr" onclick="setLang('fr')">FR</button> <button id="b-en" onclick="setLang('en')">EN</button></span></div>
+</div></nav>
+<div class="v-home">
+
+<header class="hero" id="top"><div class="wrap split">
+  <div>
+    <img class="hero-gif" src="virus-anim.gif" alt="Les virus de Contagion">
+    <p class="pill fr">Un virus. Un patient. Une pandémie mondiale.</p><p class="pill en">One virus. One patient. A global pandemic.</p>
+    <h1>Contagion</h1>
+    <p class="tag fr">Arcade et aventure à l’humour décalé : absorbe, évolue, parcours un monde fictif.</p>
+    <p class="tag en">Offbeat arcade adventure: absorb, evolve and explore a fictional world.</p>
+    <a class="btn dl" data-play href="#"><img src="app-icon.png" alt=""><span class="fr">Télécharger sur Google Play</span><span class="en">Get it on Google Play</span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00C3FF" d="M3.5 2.3 13.2 12 3.5 21.7C3.2 21.4 3 21 3 20.4V3.6C3 3 3.2 2.6 3.5 2.3Z"/><path fill="#00F076" d="M3.5 2.3 16.5 9.7 13.2 12Z"/><path fill="#FFD400" d="M16.5 9.7 20.3 11.8C21 12.2 21 12.8 20.3 13.2L16.5 14.3 13.2 12Z"/><path fill="#FF3A44" d="M3.5 21.7 16.5 14.3 13.2 12Z"/></svg></a>
+    <p class="note fr">Gratuit, moins de 3 Mo, aucun compte à créer.</p><p class="note en">Free, under 3 MB, no account needed.</p>
+  </div>
+  <div class="frame f1"><video src="video-presentation.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Contagion"></video></div>
+</div></header>
+
+
+
+<section id="jeu"><div class="wrap">
+  <h2 class="fr">Le jeu en bref</h2><h2 class="en">The game at a glance</h2>
+  <div class="feat">
+<div class="panel"><span class="ico" aria-hidden="true">🦠</span><h3 class="fr">Absorbe et évolue</h3><h3 class="en">Absorb and evolve</h3><p class="fr">Grossis en absorbant tout ce qui passe, obtiens des mutations et fais évoluer ton virus.</p><p class="en">Grow by absorbing everything around you, gain mutations and evolve your virus.</p></div>
+<div class="panel"><span class="ico" aria-hidden="true">🫁</span><h3 class="fr">Différents mondes à traverser</h3><h3 class="en">Different worlds to cross</h3><p class="fr">Artère, poumons, reins, cœur, cerveau, foie, pancréas : chaque organe a ses pièges et chaque hôte a sa personnalité.</p><p class="en">Artery, lungs, kidneys, heart, brain, liver, pancreas: every organ has its own traps and every host has its own personality.</p></div>
+<div class="panel"><span class="ico" aria-hidden="true">⚔️</span><h3 class="fr">Des combats de boss</h3><h3 class="en">Boss fights</h3><p class="fr">Garde ton sang-froid face aux boss et profite de pouvoirs pour renverser la partie.</p><p class="en">Keep your cool against bosses and use powers to turn the tide.</p></div>
+<div class="panel"><span class="ico" aria-hidden="true">🎨</span><h3 class="fr">Personnalise ton virus</h3><h3 class="en">Customize your virus</h3><p class="fr">Débloque des accessoires, d’autres couleurs, d’autres expressions et obtiens des évolutions de virus pour personnaliser un skin qui te ressemble.</p><p class="en">Unlock accessories, other colors and other expressions, and get virus evolutions to customize a skin that looks like you.</p></div>
+<div class="panel"><span class="ico" aria-hidden="true">📅</span><h3 class="fr">Défis quotidiens</h3><h3 class="en">Daily challenges</h3><p class="fr">Relève des défis quotidiens et tente ta chance à la roue de la fortune pour obtenir des récompenses.</p><p class="en">Take on daily challenges and try your luck on the wheel of fortune to win rewards.</p></div>
+<div class="panel"><span class="ico" aria-hidden="true">🌍</span><h3 class="fr">Dans ta langue</h3><h3 class="en">In your language</h3><p class="fr">Disponible en 16 langues, gratuit et léger pour une installation instantanée.</p><p class="en">Available in 16 languages, free and light for an instant install.</p></div>
+  </div>
+</div></section>
+
+<section id="gameplay"><div class="wrap split rev">
+  <div class="copy">
+    <h2 class="fr">Un hôte complet en vidéo</h2><h2 class="en">A full host on video</h2>
+    <p class="fr">Suis une partie entière, de l’entrée dans l’hôte jusqu’au combat d’un boss.</p>
+    <p class="en">Watch a whole run, from entering the host to a boss fight.</p>
+  </div>
+  <div class="frame f2"><video src="video-gameplay-hote.mp4" controls playsinline preload="metadata" aria-label="Gameplay"></video></div>
+</div></section>
+
+<section id="images"><div class="wrap">
+  <h2 class="fr">En images</h2><h2 class="en">Screenshots</h2>
+  <div class="shots"><img src="capture-1.jpg" alt="Capture 1" loading="lazy" onerror="this.remove()"><img src="capture-2.jpg" alt="Capture 2" loading="lazy" onerror="this.remove()"><img src="capture-3.jpg" alt="Capture 3" loading="lazy" onerror="this.remove()"><img src="capture-4.jpg" alt="Capture 4" loading="lazy" onerror="this.remove()"><img src="capture-5.jpg" alt="Capture 5" loading="lazy" onerror="this.remove()"><img src="capture-6.jpg" alt="Capture 6" loading="lazy" onerror="this.remove()"></div>
+</div></section>
+
+<section><div class="wrap"><div class="panel studio">
+  <img src="logo.png" alt="JPro Studio">
+  <p class="fr">Contagion est un jeu conçu avec passion par <strong>JPro Studio</strong>.</p>
+  <p class="en">Contagion is a game made with passion by <strong>JPro Studio</strong>.</p>
+</div></div></section>
+
+<section class="cta"><div class="wrap">
+  <h2 class="fr">Prêt à contaminer ?</h2><h2 class="en">Ready to spread?</h2>
+  <p><a class="btn dl" data-play href="#"><img src="app-icon.png" alt=""><span class="fr">Télécharger sur Google Play</span><span class="en">Get it on Google Play</span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00C3FF" d="M3.5 2.3 13.2 12 3.5 21.7C3.2 21.4 3 21 3 20.4V3.6C3 3 3.2 2.6 3.5 2.3Z"/><path fill="#00F076" d="M3.5 2.3 16.5 9.7 13.2 12Z"/><path fill="#FFD400" d="M16.5 9.7 20.3 11.8C21 12.2 21 12.8 20.3 13.2L16.5 14.3 13.2 12Z"/><path fill="#FF3A44" d="M3.5 21.7 16.5 14.3 13.2 12Z"/></svg></a></p>
+</div></section>
+
+</div>
+<main class="wrap narrow v-privacy" id="privacy">
+<div class="title">
+            <h1 class="lang-fr">Politique de Confidentialité</h1><h1 class="lang-en">Privacy Policy</h1>
+            <img class="lg" src="logo.png" alt="JPro Studio">
+            <p><span class="lang-fr">Application Mobile : <strong>Contagion</strong> | Éditeur : <strong>JPro Studio</strong></span><span class="lang-en">Mobile Application: <strong>Contagion</strong> | Publisher: <strong>JPro Studio</strong></span></p>
+            <p><span class="lang-fr">Dernière mise à jour : 30 octobre 2026</span><span class="lang-en">Last updated: October 30, 2026</span></p>
+        </div>
+            <!-- SECTION 1 -->
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>1. Collecte et Utilisation des Données</h2>
+                    <p>L'application mobile <strong>Contagion</strong> est conçue pour respecter totalement la vie privée de ses joueurs. Aucun compte utilisateur ou inscription en ligne n'est requis.</p>
+                    <h3>Stockage Persistant Local</h3>
+                    <p>Toutes vos données sont sauvegardées exclusivement de façon locale et permanente sur votre propre appareil (via la technologie native <em>Capacitor Preferences</em>). L'éditeur <strong>JPro Studio</strong> n'a accès à aucune de ces informations. Les éléments stockés incluent :</p>
+                    <ul>
+                        <li>Le meilleur score personnel (High Score).</li>
+                        <li>La progression des niveaux et les statistiques de jeu.</li>
+                        <li>Les skins débloqués ainsi que leurs variantes évoluées.</li>
+                        <li>Le statut de complétion de la Série 1 des succès.</li>
+                        <li><strong>Les récompenses et l'historique des défis quotidiens.</strong></li>
+                    </ul>
+                </div>
+                <div class="lang-en">
+                    <h2>1. Data Collection and Use</h2>
+                    <p>The <strong>Contagion</strong> mobile application is built to fully respect player privacy. No user registration or online account creation is required.</p>
+                    <h3>Local Persistent Storage</h3>
+                    <p>All your gameplay data is saved exclusively and permanently on your own device (using native <em>Capacitor Preferences</em> technology). The publisher, <strong>JPro Studio</strong>, has no access to this information. Stored data includes:</p>
+                    <ul>
+                        <li>Personal best score (High Score).</li>
+                        <li>Level progression and gameplay statistics.</li>
+                        <li>Unlocked skins and their evolved variants.</li>
+                        <li>Completion status of the Series 1 achievements.</li>
+                        <li><strong>Daily challenge rewards and history.</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SECTION 2 -->
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>2. Services Tiers et Publicités (AdMob)</h2>
+                    <p>Afin de proposer des mécaniques de jeu gratuites (comme la résurrection avec conservation de la masse, le déblocage de variantes de skins, l'obtention de mutations ou les bonus de la roue des récompenses), l'Application intègre le service publicitaire <strong>Google AdMob</strong>.</p>
+                    <p>Pour diffuser et valider ces vidéos récompensées (Rewarded Videos), Google AdMob peut collecter des identifiants techniques anonymes :</p>
+                    <ul>
+                        <li>L'identifiant publicitaire unique de votre appareil (Ad ID pour Android ou IDFA pour iOS).</li>
+                        <li>Des données de performance et de diagnostic de l'application.</li>
+                    </ul>
+                    <p>Consultez leurs engagements : <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Politique de confidentialité de Google AdMob & Play Services</a>.</p>
+                </div>
+                <div class="lang-en">
+                    <h2>2. Third-Party Services and Advertisements (AdMob)</h2>
+                    <p>To provide free in-game mechanics (such as resurrection while retaining mass, unlocking skin variants, acquiring mutations, or reward wheel bonuses), the Application integrates the <strong>Google AdMob</strong> advertising service.</p>
+                    <p>To serve and validate these Rewarded Videos, Google AdMob may collect anonymous technical identifiers:</p>
+                    <ul>
+                        <li>Your device's unique advertising identifier (Ad ID for Android or IDFA for iOS).</li>
+                        <li>Application performance and diagnostic data.</li>
+                    </ul>
+                    <p>View their commitments: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google AdMob & Play Services Privacy Policy</a>.</p>
+                </div>
+            </div>
+
+            <!-- SECTION 3 -->
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>3. Modules Natifs (Partage et Notation)</h2>
+                    <p>L'Application utilise les fonctionnalités intégrées de votre système d'exploitation :</p>
+                    <ul>
+                        <li><strong>Partage Viral :</strong> Les options de partage intégrées au tableau des scores et au menu Game Over font appel au système de partage natif (Snapchat, TikTok, Instagram, X, Facebook).</li>
+                        <li><strong>Système de Notation :</strong> La popup d'incitation à la notation (In-App Review) se déclenche via les API officielles de Google/Apple et ne collecte aucune donnée personnelle.</li>
+                    </ul>
+                </div>
+                <div class="lang-en">
+                    <h2>3. Native Features (Sharing and Reviews)</h2>
+                    <p>The Application utilizes the built-in capabilities of your mobile operating system:</p>
+                    <ul>
+                        <li><strong>Viral Sharing:</strong> Sharing options integrated into the scoreboard and Game Over menu rely on the device's native system to share text or graphics directly to platforms like Snapchat, TikTok, Instagram, X, and Facebook.</li>
+                        <li><strong>Review System:</strong> The rating prompt (In-App Review) triggers via official Google/Apple APIs and does not collect any personal data.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>4. Sécurité et Protection (R8)</h2>
+                    <p>Pour prémunir le jeu contre la triche et sécuriser l'intégrité de vos fichiers de sauvegarde locaux, le code de l'application est entièrement optimisé et rendu anonyme (obfusqué) via la technologie <strong>R8</strong> avant sa publication sur les boutiques officielles.</p>
+                </div>
+                <div class="lang-en">
+                    <h2>4. Security and Code Protection (R8)</h2>
+                    <p>To protect the game against cheating and secure the integrity of your local save files, the application code is optimized, minified, and obfuscated using <strong>R8</strong> technology before its official release on app stores.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lang-fr">
+                    <h2>5. Vos Droits et Vos Choix</h2>
+                    <ul>
+                        <li><strong>Droit de suppression :</strong> Vous pouvez réinitialiser instantanément vos scores, succès, mutations et récompenses de défis quotidiens en désinstallant simplement l'Application.</li>
+                        <li><strong>Contrôle publicitaire :</strong> Vous pouvez modifier ou réinitialiser vos options de suivi publicitaire depuis les options système de votre téléphone (<em>Paramètres > Confidentialité > Annonces</em>).</li>
+                    </ul>
+                </div>
+                <div class="lang-en">
+                    <h2>5. Your Rights and Choices</h2>
+                    <ul>
+                        <li><strong>Right to Deletion:</strong> You can instantly wipe all your scores, achievements, mutations, and daily challenge rewards by simply uninstalling the Application.</li>
+                        <li><strong>Ad Control:</strong> You can opt-out or reset your ad tracking settings at any time through your mobile device's system configurations (<em>Settings > Privacy > Ads</em>).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span class="lang-fr">6. Nous contacter</span><span class="lang-en">6. Contact us</span></h2>
+                <p class="lang-fr">Pour toute question concernant le jeu <strong>Contagion</strong>, l’équipe de <strong>JPro Studio</strong> vous répond via son formulaire de contact.</p>
+                <p class="lang-en">For any question about the game <strong>Contagion</strong>, the <strong>JPro Studio</strong> team will answer through its contact form.</p>
+                <p style="text-align:center;margin-top:20px"><a class="btn" href="#contact"><span class="fr">Ouvrir le formulaire de contact</span><span class="en">Open the contact form</span><svg class="send" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a></p>
+            </div>
+        
+<div class="badge-list" style="justify-content: center;">
+                <span class="badge">Contagion Mobile</span>
+                <span class="badge highlight lang-fr">Conforme RGPD</span>
+                <span class="badge highlight lang-en">GDPR Compliant</span>
+                <span class="badge">Protection R8</span>
+            </div>
+</main>
+<main class="wrap narrow v-contact" id="contact">
+  <div class="title"><h1 class="fr">Nous contacter</h1><h1 class="en">Contact us</h1>
+  <p class="fr">Une question sur Contagion ? Écrivez-nous, nous vous répondrons par e-mail.</p>
+  <p class="en">A question about Contagion? Write to us and we will reply by email.</p></div>
+  <div class="card" id="merci" hidden><h2 class="fr">Message envoyé</h2><h2 class="en">Message sent</h2>
+  <p class="fr">Merci ! Nous vous répondrons dès que possible.</p><p class="en">Thank you! We will get back to you as soon as possible.</p></div>
+  <form class="card" id="formulaire" action="https://formsubmit.co/f6c02be6e9f0f129f56bd4134551a072" method="POST">
+    <input type="hidden" name="_subject" value="Contagion : message depuis le site">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://joprov.github.io/privacy-policy-contagion/?envoye=1">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <label for="n"><span class="fr">Votre nom</span><span class="en">Your name</span></label>
+    <input id="n" name="name" required>
+    <label for="e"><span class="fr">Votre adresse e-mail</span><span class="en">Your email address</span></label>
+    <input id="e" name="email" type="email" required>
+    <label for="m">Message</label>
+    <textarea id="m" name="message" required></textarea>
+    <button class="btn" type="submit"><span class="fr">Envoyer le message</span><span class="en">Send message</span><svg class="send" viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+  </form>
+</main>
+<footer><div class="wrap">
+  <p>© 2026 JPro Studio</p>
+  <p><a href="#privacy"><span class="fr">Politique de confidentialité</span><span class="en">Privacy policy</span></a><a href="#contact">Contact</a></p>
+</div></footer>
+<script>
+var PLAY_URL="https://play.google.com/store/search?q=Contagion&c=apps";
+document.querySelectorAll("[data-play]").forEach(function(a){a.href=PLAY_URL});
+function setLang(l){document.documentElement.lang=l;try{localStorage.setItem("lang",l)}catch(e){}}
+(function(){var l;try{l=localStorage.getItem("lang")}catch(e){}
+setLang(l||((navigator.language||"fr").indexOf("en")==0?"en":"fr"))})();
+function route(){var h=location.hash.slice(1),v=(h=="privacy"||h=="contact")?h:"home";
+document.body.setAttribute("data-view",v);
+var el=v=="home"&&h?document.getElementById(h):null;
+if(el)el.scrollIntoView();else window.scrollTo(0,0)}
+addEventListener("hashchange",route);
+if(location.search.indexOf("envoye=1")>-1){document.getElementById("merci").hidden=false;document.getElementById("formulaire").hidden=true;if(location.hash!="#contact")location.hash="contact"}
+route();
+</script>
+</body>
+</html>
